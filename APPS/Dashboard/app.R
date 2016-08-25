@@ -9,7 +9,7 @@
 
 library(shiny)
 library(shinydashboard)
-
+ 
 # Define UI for application that draws a histogram
 
 header = dashboardHeader(title = "Gene Set Omic Analysis (GSOA)", titleWidth = 350,
