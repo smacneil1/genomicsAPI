@@ -31,7 +31,8 @@ sidebar = dashboardSidebar( width = 300,
       menuItem("Dashboard", tabName = "Parameters", icon = icon("dashboard")),
       #menuItem("Paramters", tabName = "Parameters", icon = icon("th")),
       #menuItem("Widgets", tabName = "Results", icon = icon("th")),
-      div(style="height: 55px;", fileInput('file1', 'Choose gene expression file.', multiple = TRUE, accept=c('text/csv','text/comma-separated-values,text/plain', '.csv'))),
+      div(style="height: 55px;", fileInput('file1', 'Choose gene expression file.', multiple = TRUE, accept=c('text/csv', 
+                                                                                      'text/comma-separated-values,text/plain'))),
       div(style="height: 55px;",fileInput('file2', 'Choose DNA file.', accept=c('text/csv','text/comma-separated-values,text/plain', '.csv'))),
       div(style="height: 55px;",fileInput('file3', 'Choose CNV file.', accept=c('text/csv','text/comma-separated-values,text/plain', '.csv'))),
       div(style="height: 55px;",fileInput('file4', 'Choose Methyation file.', accept=c('text/csv','text/comma-separated-values,text/plain', '.csv'))),
@@ -49,21 +50,31 @@ sidebar = dashboardSidebar( width = 300,
     
   body = dashboardBody(
     # Boxes need to be put in a row (or column)
-    fluidRow(
-      box( )
-  ))
+    #fluidRow(
+      #box( )
+    tableOutput('contents')
+ # )
+  )
 
       
 ui <- dashboardPage(header, sidebar, body, skin= "purple")   
 
 server <- function(input, output) {
-  set.seed(122)
-  histdata <- rnorm(500)
-  
-  output$plot1 <- renderPlot({
-    data <- histdata[seq_len(input$slider)]
-    hist(data)
-  })
-}
+    output$contents <- renderTable({
+      # input$file1 will be NULL initially. After the user selects
+      # and uploads a file, it will be a data frame with 'name',
+      # 'size', 'type', and 'datapath' columns. The 'datapath'
+      # column will contain the local filenames where the data can
+      # be found.
+      
+      inFile <- input$file1
+      
+      if (is.null(inFile))
+        return(NULL)
+      
+      read.csv(inFile$datapath, header = input$header,
+               sep = input$sep, quote = input$quote)
+    })
+  }
 
 shinyApp(ui, server)

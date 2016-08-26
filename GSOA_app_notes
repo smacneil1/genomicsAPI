@@ -1,0 +1,57 @@
+-------------------
+  GSOA App Notes
+-------------------
+
+Running GSOA from R 
+--------------------
+
+1) Install the Package
+
+R CMD INSTALL GSOA_0.99.5.tar.gz
+
+2) Load the Library
+
+Going over the GSOA.R Code. 
+  - There are 8 functions 
+  - GSOA_ProcessFiles calls the main GSOA function
+  - ProcessGeneSetList is called within GetRandomResults and within GSOA
+  - GetRandResults also called by GSOA
+  - ReformatGeneNames called by ProcessGeneSets
+  - GetBin called by GSOA
+  - findNumGeneBins called by getRandomResults
+
+3) Call the GSOA function. 
+
+Making a Shiny App
+-------------------
+
+1) Make the ui.R script 
+    - This is the code for the user interface and how everything looks
+    - There is a sidebar panel, a main panel, and a title panel
+    
+2) Make the server.R script
+    - This is where the code goes for the app
+    
+3) Use Rsconnect to publish app 
+
+
+
+Meeting with Steve
+-----------------
+
+Could if be a version issue?
+‘limma’ was built under R version 3.3.1
+Should I up date my R?
+Why am I getting a Null Result?
+
+Suggestions for R package. 
+--------------------------
+Have a seperate download for the R package. Other wise you have to move to to your directory
+
+
+
+Notes about the GSOA App Layout
+-------------------------------
+
+Using a fluid layout. 
+
