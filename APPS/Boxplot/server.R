@@ -23,27 +23,10 @@ shinyServer(function(input, output) {
     #boxplot(file)
   #})
 
-  # output$distPlot <- renderPlot({
-  #   
-  #   # generate an rnorm distribution and plot it
-  #   dist <- input$file1
-  #   hist(dist)
-  # })
-  # 
-
-#theData <- reactive({
-#  infile <- input$file1        
-#  if(is.null(infile))
-#    return(NULL)        
-#  d <- read.csv(infile, header = T)
-#  print(d   )     
-#})
-
-  
 myData <- reactive({
     inFile <- input$file1
     if (is.null(inFile)) return(NULL)
-    data <- read.csv(inFile$datapath, header = T, sep="\t", row.names = 1)
+    data <- read.csv(inFile$datapath, header = T, sep= "\t", row.names = 1)
     data
   })
 
