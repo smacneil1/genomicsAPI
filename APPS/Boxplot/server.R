@@ -8,6 +8,7 @@
 #
 
 library(shiny)
+library(shinydashboard)
 
 # By default, the file size limit is 5MB. It can be changed by
 # setting this option. Here we'll raise limit to 9MB.
@@ -30,7 +31,7 @@ myData <- reactive({
     data
   })
 
-  output$contents <- renderTable({
+ output$contents <- renderTable({
     head(myData())
   })
   
@@ -38,11 +39,16 @@ myData <- reactive({
 output$plot1 <- renderPlot({
   data=myData() 
   par(cex.lab=1.5)
-  boxplot(data, main= input$outFile, ylab= "Samples", xlab= "Values", col= "royalblue")
+  boxplot(data, main= input$title, ylab= input$yaxis, xlab= input$xaxis, col= "royalblue")
  })
   
-  output$outFile <- renderText({
-    paste("Name your outfile:", input$outFile)
-  })
+  #output$title <- renderText({
+  #  paste("Boxplot Title", input$title)
+  #})
   
+
+
 })
+
+
+

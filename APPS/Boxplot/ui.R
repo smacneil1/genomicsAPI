@@ -8,12 +8,16 @@
 #
 
 library(shiny)
+library(shinydashboard)
+
 
 # Define UI for application that draws a histogram
-shinyUI(fluidPage(
-  titlePanel("Create a Boxplot"),
+shinyUI(fluidPage( headerPanel(title = "Create a Boxplot"), 
+                   
   sidebarLayout(
     sidebarPanel(
+      p('First select the file you would like to create a Boxplot for.'
+      ),
       fileInput('file1', 'Choose file to upload',
                 accept = c(
                   'text/csv',
@@ -25,35 +29,39 @@ shinyUI(fluidPage(
                 )
       ),
       p('If you want a sample .txt file to upload,',
-        'you can first download the sample',
-        a(href = '', 'FakeRNAData.txt'),
-        'file, and try uploading.'
+        'click the link,', a(href = 'https://drive.google.com/file/d/0B-HGhGW-uF4ATHhqX1Noa2RTN2s/view?usp=sharing', 'SampleGeneExpressionData.txt', target="_blank"),
+        'click "download" from the drive,', 'and then try uploading.'
       ),
+
       tags$hr(),
-      #checkboxInput('header', 'Header', TRUE),
-      radioButtons('sep', 'Separator',
-                   c(Comma=',',
-                     Semicolon=';',
-                     Tab='\t'),
-                   ','),
-     
-      div(style="height: 65px;",selectInput('algorithm', label = 'Machine Learning Algorithm.', choices = c("svm", "rf"))),
-      div(style="height: 65px;",selectInput('Voom', label = 'Apply Voom Normalization.', selected= "No", choices = c("Yes", "No"))),
-      div(style="height: 65px;",numericInput('Cores', label = 'Number of Cores.',value=1, min = 1, max = 4)),
-      div(style="height: 65px;",numericInput('Iterations', label = 'Number of Iterations.',value=100, min = 1, max = 1000)),
-      div(style="height: 65px;", numericInput("Variance", "% Variance to Filter",value=10, min = 1, max = 90)),
-      div(style="height: 65px;", numericInput("LowExpression", "% Low Gene Expression to Filter",value=10, min = 1, max = 90)),
-      div(style="height: 65px;",textInput('outFile', label = 'Specify Output File name.')),
-      #div(style="height: 65px;",actionButton("showParameters", "Show Parameters")),
-      submitButton("Submit")),
+      #downloadButton('downloadData', 'Download')
+      p('Then label your Boxplot, and click "Label Plot"'
+      ),
+      textInput('title', value= "Gene Expression Values Across Breast Cancer Cell Lines ", label = 'Boxplot Title.'),
+      textInput('yaxis', value= "Gene Expression Values (RNA-seq) ", label = 'Y-Axis Name.'),
+      textInput('xaxis', value= "Breast Cancer Cell Lines ", label = 'X-Axis Name.'),
+      submitButton("Label Plot")),
 
     # main panel
     mainPanel(
+      tags$style(type="text/css",
+                 ".shiny-output-error { visibility: hidden; }",
+                 ".shiny-output-error:before { visibility: hidden; }"),
       tableOutput('contents'),
-      verbatimTextOutput("outFile"),
+      #verbatimTextOutput("outFile"),
       plotOutput('plot1')
-    )
-  )
-))
+    ))))
 
+
+
+
+
+
+
+#checkboxInput('header', 'Header', TRUE),
+#radioButtons('sep', 'Separator',
+#            c(Comma=',',
+#               Semicolon=';',
+#               Tab='\t'),
+#             ','),
 
