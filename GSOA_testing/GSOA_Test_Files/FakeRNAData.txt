@@ -1,0 +1,1 @@
+	Patient 1	Patient 2	Patient 3	Patient 4	Patient 5Gene1	1	1	1	1	1Gene2	2	2	2	2	2Gene3	3	5	6	7	8Gene4	5	7	60	4	5Gene5	5	9		8	5Gene6	5	11	109.6666667	9	5Gene7	5	13	138.6666667	0	5Gene8	5	15	167.6666667	0	7Gene9	5	17	196.6666667	0	8Gene10	5	19	225.6666667	0	8

@@ -1,0 +1,62 @@
+% -*- mode: noweb; noweb-default-code-mode: R-mode; -*-
+%\VignetteIndexEntry{Introduction to the GSOA package}
+%\VignetteKeywords{GeneSetEnrichment, SystemsBiology, Microarray, RNASeq, Classification, SupportVectorMachine, Pathways}
+%\VignetteDepends{mlr, doParallel, GSEABase}
+%\VignettePackage{GSOA}
+\documentclass[12pt]{article}
+\usepackage{hyperref}
+\usepackage[authoryear, round]{natbib}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+\textwidth=6.2in
+\textheight=8.5in
+\parskip=.3cm
+\oddsidemargin=.1in
+\evensidemargin=.1in
+\headheight=-.3in
+
+\newcommand\Rpackage[1]{{\textsf{#1}\index{#1 (package)}}}
+\newcommand\dataset[1]{{\textit{#1}\index{#1 (data set)}}}
+\newcommand\Rclass[1]{{\textit{#1}\index{#1 (class)}}}
+\newcommand\Rfunction[1]{{{\small\texttt{#1}}\index{#1 (function)}}}
+\newcommand\Rfunarg[1]{{\small\texttt{#1}}}
+\newcommand\Robject[1]{{\small\texttt{#1}}}
+
+\hypersetup{
+    colorlinks=false,
+    pdfborder={0 0 0},
+}
+
+\author{Stephen R. Piccolo}
+\begin{document}
+\title{Introduction to the GSOA Package}
+\maketitle
+\tableofcontents
+
+%<<setup, echo=FALSE>>=
+%@ 
+
+\section{Background}
+
+This package enables users to execute the Gene Set Omic Analysis (GSOA) method. GSOA is described in our paper, "Inferring pathway dysregulation in cancers from multiple types of omic data"\citep{MacNeil2015}.
+
+%<<download-geo-direct, eval=FALSE>>=
+%library(GEOquery)
+%tmpDir = tempdir()
+%library(GEOquery)
+%getGEOSuppFiles("GSM555237", makeDirectory=FALSE, baseDir=tmpDir)
+%celFilePath = file.path(tmpDir, "GSM555237.CEL.gz")
+%@
+
+%The \Rfunction{SCAN} function returns an \Rclass{ExpressionSet} object containing a row for each probeset value. Detailed status information, including the number of iterations required for mathematical convergence of the mixture model, is printed to the console.
+%Using the optional \Rfunarg{outFilePath} parameter, the normalized values can be saved to a text file. The example below demonstrates this option.
+
+%BrainArray packages can be downloaded manually from \url{http://brainarray.mbni.med.umich.edu/Brainarray/Database/CustomCDF/CDF_download.asp}. When downloading, be sure to download the R source package for probe-level mappings (example below).
+
+More details to come. Please see the \Rpackage{GSOA} documentation for full descriptions of functions and the various options they support.
+
+\bibliographystyle{plainnat}
+\bibliography{GSOA.vignette}
+
+\end{document}

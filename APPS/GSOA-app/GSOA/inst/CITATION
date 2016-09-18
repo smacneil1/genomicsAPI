@@ -1,0 +1,14 @@
+citEntry(entry = "Article",
+         "author" = "MacNeil, Shelley M and Johnson, William E and Li, Dean Y and Piccolo, Stephen R and Bild, Andrea H",
+         "title" = "Inferring pathway dysregulation in cancers from multiple types of omic data",
+         journal = "Genome Medicine",
+         volume = "7",
+         number = "1",
+         year = "2015",
+         issn = "1756-994X",
+         pages = "61",
+         doi = "10.1186/s13073-015-0189-4",
+         publisher = "BioMed Central",
+         address = "",
+         textVersion = "MacNeil SM, Johnson WE, Li DY, Piccolo SR & Bild AH (2015) Inferring pathway dysregulation in cancers from multiple types of omic data. Genome Med. 7: 61 Available at: http://genomemedicine.com/content/7/1/61."
+) 

@@ -1,0 +1,24 @@
+Package: GSOA
+Type: Package
+Title: Gene Set Omic Analysis (GSOA)
+Version: 0.99.7
+Author: Stephen R. Piccolo
+Maintainer: Stephen R. Piccolo <stephen_piccolo@byu.edu>
+Description: From our manuscript: "Although in some cases
+    individual genomic aberrations may drive disease development 
+    in isolation, a complex interplay among multiple aberrations 
+    is common. Accordingly, we developed Gene Set Omic Analysis 
+    (GSOA), a bioinformatics tool that can evaluate multiple 
+    types and combinations of omic data at the pathway level. 
+    GSOA uses machine learning to identify dysregulated pathways 
+    and improves upon other methods because of its ability to 
+    decipher complex, multigene patterns."
+License: MIT
+Depends: R (>= 3.2.0), mlr, doParallel, foreach, GSEABase, limma, edgeR
+Suggests:
+Imports:
+URL: https://bitbucket.org/srp33/gsoa
+biocViews: GeneSetEnrichment, SystemsBiology, Microarray, RNASeq,
+        Classification, SupportVectorMachine, Pathways
+NeedsCompilation: no
+Packaged: 2016-08-23 19:13:10 UTC; srp33

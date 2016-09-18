@@ -1,0 +1,10 @@
+41bbPathway	TNF-type receptor 4-1BB is bound by TRAF1 to activate the MAP kinase pathway in activated T cells.	IL2	TRAF2	MAP3K1	IFNG	CHUK	NFKBIA	MAPK14	IL4	RELA	JUN	ATF2	MAP4K5	TNFRSF9	TNFSF9	MAP3K5	IKBKB	NFKB1	MAPK8
+ace2Pathway	Angiotensin-converting enzyme 2 (ACE2) digests the blood-pressure regulator angiotensin II (AGT) ultimately to the vasodilator AGT1-7.	COL4A3	COL4A1	COL4A5	AGT	COL4A6	AGTR1	COL4A2	REN	COL4A4	ACE2	CMA1	AGTR2
+acetaminophenPathway	Acetaminophen selectively inhibits Cox-3, which is localized to the brain, and yields the toxic metabolite NAPQI when processed by CAR in the liver.	CYP3A	PTGS2	CYP1A2	PTGS1	NR1I3	CYP2E1
+achPathway	Nicotinic acetylcholine receptors are ligand-gated ion channels that primarily mediate neuromuscular signaling and may inhibit neuronal apoptosis via the AKT pathway.	RAPSN	TERT	MUSK	PTK2	CHRNG	AKT1	PIK3CA	PIK3R1	BAD	PTK2B	YWHAH	SRC	CHRNB1	FOXO3A	TNFSF6
+actinYPathway	The Arp 2/3 complex localizes to the Y-junction of polymerizing actin fibers that enable lamellipod extension and consequent cell motility.	ACTR3	ABI-2	WASL	ARPC4	NTRK1	ARPC3	WASF1	RAC1	WASF2	ACTA1	ARPC1A	PIR	ARPC2	ARPC1B	NCKAP1	NCK1	WASF3	ACTR2	PSMA7
+agpcrPathway	G-protein coupled receptors (GPCRs) transduce extracellular signals across the plasma membrane; attenuation occurs by signal molecule degradation or receptor-mediated endocytosis.	PRKAR2A	GNGT1	PRKACB	PRKCB1	PRKCA	PRKAR2B	PRKAR1A	PRKACG	PRKAR1B	GPRK2L	ARRB1	GNAS	GNB1
+ahspPathway	Alpha-hemoglobin stabilizing protein (AHSP) prevents precitipation of hemoglobin alpha-subunits.	CPO	HMBS	ALAS1	ERAF	HBA2	ALAD	HBA1	GATA1	ALAS2	UROS	UROD	HBB	FECH
+aifPathway	BLACK	ADPRT	PDCD8	BCL2L1	CYCS
+akap13Pathway	A-kinase anchor protein 13 (AKAP13) localizes protein kinase A holoenzyme and is a nucleotide exchange factor for Rho/Rac.	EDG4	PRKACG	PRKAR2A	PRKACB	PRKAG1	GNA12	PRKAR2B	EDG2	AKAP13	ARHA	EDG7
+akap96Pathway	BioCarta	CDC2	DDX5	PRKACG	PRKAR2A	PPP1CA	PRKACB	CNAP1	CCNB1	PPP2CA	PRKAG1	AKAP8	PRKAR2B
