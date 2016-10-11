@@ -1,0 +1,231 @@
+Loading required package: mlr
+Loading required package: BBmisc
+Loading required package: ggplot2
+Loading required package: ParamHelpers
+Loading required package: stringi
+Loading required package: doParallel
+Loading required package: foreach
+Loading required package: iterators
+Loading required package: parallel
+Loading required package: GSEABase
+Loading required package: BiocGenerics
+Loading required package: methods
+
+Attaching package: ‘BiocGenerics’
+
+The following objects are masked from ‘package:parallel’:
+
+    clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+    clusterExport, clusterMap, parApply, parCapply, parLapply,
+    parLapplyLB, parRapply, parSapply, parSapplyLB
+
+The following object is masked from ‘package:BBmisc’:
+
+    normalize
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, append, as.data.frame, cbind, colnames, do.call,
+    duplicated, eval, evalq, Filter, Find, get, grep, grepl, intersect,
+    is.unsorted, lapply, lengths, Map, mapply, match, mget, order,
+    paste, pmax, pmax.int, pmin, pmin.int, Position, rank, rbind,
+    Reduce, rownames, sapply, setdiff, sort, table, tapply, union,
+    unique, unsplit
+
+Loading required package: Biobase
+Welcome to Bioconductor
+
+    Vignettes contain introductory material; view with
+    'browseVignettes()'. To cite Bioconductor, see
+    'citation("Biobase")', and for packages 'citation("pkgname")'.
+
+Loading required package: annotate
+Loading required package: AnnotationDbi
+Loading required package: stats4
+Loading required package: IRanges
+Loading required package: S4Vectors
+
+Attaching package: ‘S4Vectors’
+
+The following object is masked from ‘package:ParamHelpers’:
+
+    isEmpty
+
+The following objects are masked from ‘package:base’:
+
+    colMeans, colSums, expand.grid, rowMeans, rowSums
+
+
+Attaching package: ‘IRanges’
+
+The following object is masked from ‘package:BBmisc’:
+
+    collapse
+
+Loading required package: XML
+Loading required package: graph
+
+Attaching package: ‘graph’
+
+The following object is masked from ‘package:XML’:
+
+    addNode
+
+Loading required package: limma
+
+Attaching package: ‘limma’
+
+The following object is masked from ‘package:BiocGenerics’:
+
+    plotMA
+
+The following object is masked from ‘package:ParamHelpers’:
+
+    isNumeric
+
+Loading required package: edgeR
+[1] "/Users/shelleymacneil/Documents/PhDProjects/genomicsAPI/OVCA_MYC/GSOA_TCGA_OV_MYC.txt"
+Loading required package: mlr
+Loading required package: BBmisc
+Loading required package: ggplot2
+Loading required package: ParamHelpers
+Loading required package: stringi
+Loading required package: doParallel
+Loading required package: foreach
+Loading required package: iterators
+Loading required package: parallel
+Loading required package: GSEABase
+Loading required package: BiocGenerics
+Loading required package: methods
+
+Attaching package: ‘BiocGenerics’
+
+The following objects are masked from ‘package:parallel’:
+
+    clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+    clusterExport, clusterMap, parApply, parCapply, parLapply,
+    parLapplyLB, parRapply, parSapply, parSapplyLB
+
+The following object is masked from ‘package:BBmisc’:
+
+    normalize
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, append, as.data.frame, cbind, colnames, do.call,
+    duplicated, eval, evalq, Filter, Find, get, grep, grepl, intersect,
+    is.unsorted, lapply, lengths, Map, mapply, match, mget, order,
+    paste, pmax, pmax.int, pmin, pmin.int, Position, rank, rbind,
+    Reduce, rownames, sapply, setdiff, sort, table, tapply, union,
+    unique, unsplit
+
+Loading required package: Biobase
+Welcome to Bioconductor
+
+    Vignettes contain introductory material; view with
+    'browseVignettes()'. To cite Bioconductor, see
+    'citation("Biobase")', and for packages 'citation("pkgname")'.
+
+Loading required package: annotate
+Loading required package: AnnotationDbi
+Loading required package: stats4
+Loading required package: IRanges
+Loading required package: S4Vectors
+
+Attaching package: ‘S4Vectors’
+
+The following object is masked from ‘package:ParamHelpers’:
+
+    isEmpty
+
+The following objects are masked from ‘package:base’:
+
+    colMeans, colSums, expand.grid, rowMeans, rowSums
+
+
+Attaching package: ‘IRanges’
+
+The following object is masked from ‘package:BBmisc’:
+
+    collapse
+
+Loading required package: XML
+Loading required package: graph
+
+Attaching package: ‘graph’
+
+The following object is masked from ‘package:XML’:
+
+    addNode
+
+Loading required package: limma
+
+Attaching package: ‘limma’
+
+The following object is masked from ‘package:BiocGenerics’:
+
+    plotMA
+
+The following object is masked from ‘package:ParamHelpers’:
+
+    isNumeric
+
+Loading required package: edgeR
+[1] "/Users/shelleymacneil/Documents/PhDProjects/genomicsAPI/OVCA_MYC/GSOA_TCGA_OV_MYC.txt"
+Read data from the file(s) into a list
+Read data from /Users/shelleymacneil/Documents/PhDProjects/genomicsAPI/OVCA_MYC/data/TCGA_OVCA_TPM_CNVSamples.txt.
+Read class data
+Read the gene-set data from /Users/shelleymacneil/Documents/PhDProjects/genomicsAPI/Data/h.all.v5.2.symbols.gmt
+Remove lowest-expressing genes
+Remove lowest-variance genes
+Parse gene sets and check for overlap with data files
+Find the maximum number of genes across all gene sets
+Identify samples that are common across all data sets and the class data
+Making predictions for gene set: HALLMARK_TNFA_SIGNALING_VIA_NFKB.
+Making predictions for gene set: HALLMARK_HYPOXIA.
+Making predictions for gene set: HALLMARK_CHOLESTEROL_HOMEOSTASIS.
+Making predictions for gene set: HALLMARK_MITOTIC_SPINDLE.
+Making predictions for gene set: HALLMARK_WNT_BETA_CATENIN_SIGNALING.
+Making predictions for gene set: HALLMARK_IL6_JAK_STAT3_SIGNALING.
+Making predictions for gene set: HALLMARK_TGF_BETA_SIGNALING.
+Making predictions for gene set: HALLMARK_G2M_CHECKPOINT.
+Making predictions for gene set: HALLMARK_DNA_REPAIR.
+Making predictions for gene set: HALLMARK_APOPTOSIS.
+Making predictions for gene set: HALLMARK_NOTCH_SIGNALING.
+Making predictions for gene set: HALLMARK_ESTROGEN_RESPONSE_EARLY.
+Making predictions for gene set: HALLMARK_ADIPOGENESIS.
+Making predictions for gene set: HALLMARK_ANDROGEN_RESPONSE.
+Making predictions for gene set: HALLMARK_ESTROGEN_RESPONSE_LATE.
+Making predictions for gene set: HALLMARK_PROTEIN_SECRETION.
+Making predictions for gene set: HALLMARK_INTERFERON_GAMMA_RESPONSE.
+Making predictions for gene set: HALLMARK_MYOGENESIS.
+Making predictions for gene set: HALLMARK_APICAL_SURFACE.
+Making predictions for gene set: HALLMARK_COMPLEMENT.
+Making predictions for gene set: HALLMARK_INTERFERON_ALPHA_RESPONSE.
+Making predictions for gene set: HALLMARK_APICAL_JUNCTION.
+Making predictions for gene set: HALLMARK_PI3K_AKT_MTOR_SIGNALING.
+Making predictions for gene set: HALLMARK_HEDGEHOG_SIGNALING.
+Making predictions for gene set: HALLMARK_E2F_TARGETS.
+Making predictions for gene set: HALLMARK_UNFOLDED_PROTEIN_RESPONSE.
+Making predictions for gene set: HALLMARK_MTORC1_SIGNALING.
+Making predictions for gene set: HALLMARK_MYC_TARGETS_V2.
+Making predictions for gene set: HALLMARK_INFLAMMATORY_RESPONSE.
+Making predictions for gene set: HALLMARK_MYC_TARGETS_V1.
+Making predictions for gene set: HALLMARK_FATTY_ACID_METABOLISM.
+Making predictions for gene set: HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION.
+
+
+Timing stopped at: 0.348 0.012 0.362 
+
+Warning message:
+In mclapply(argsList, FUN, mc.preschedule = preschedule, mc.set.seed = set.seed,  :
+  all scheduled cores encountered errors in user code
+Execution halted
