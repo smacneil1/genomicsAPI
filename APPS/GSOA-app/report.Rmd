@@ -1,0 +1,53 @@
+---
+title: "GSOA Report"
+params:
+  'FALSE': P53_collapsed_symbols.txt
+  m: 10
+output:
+ flexdashboard::flex_dashboard:
+  orientation: columns
+  #html_document:
+   # highlight: tango
+  #  theme: journal
+  #pdf_document: default
+---
+
+```{r, results='asis', echo=FALSE}
+suppressMessages(library(googleVis))
+op <- options(gvis.plot.tag="chart")
+```
+
+
+```{r , results='asis', echo=FALSE}
+library(knitr)
+df = data.frame(matrix(rnorm(20), nrow=5))
+Tbl <- gvisTable(df, options=list(height=300, width=300))
+plot(Tbl)
+#kable(Tbl)
+
+```
+
+
+
+
+## Parameters used for this analysis
+**Dataset: ** `r params$n`           
+**Class File: ** `r params$n`  
+**Geneset Filrender("input.Rmd", "pdf_document")
+e: ** `r params$n`   
+**Machine Learning Algorithm: **  
+**Variance Filtered : **  
+**Low Gene Expression : **   
+**Cross Validations : **  
+**Number of Iterations : **  
+
+
+A plot of `params$n` random points.
+
+
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |

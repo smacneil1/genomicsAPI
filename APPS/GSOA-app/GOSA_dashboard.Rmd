@@ -1,0 +1,116 @@
+---
+title: "GSOA Report"
+output: 
+  flexdashboard::flex_dashboard:
+    theme: cerulean
+    orientation: rows
+    social: menu
+    source_code: embed
+params: 
+    m: NA
+    n: NA
+---
+
+```{r include = FALSE}
+suppressMessages(library(googleVis))
+op <- options(gvis.plot.tag="chart")
+```
+<!-- 
+# Intro {.sidebar}
+
+This report contains:  
+
+* GSOA Hallmarks Report
+* Table of parameters
+* Raw GSOA results 
+-->
+
+<!-- Title of the tabe -->
+# Hallmarks Report
+
+<!-- First Column with 2 Rows -->
+Column {data-height=700}
+---------------------------------------------
+
+
+
+### OK
+
+```{r, results='asis', echo=FALSE}
+library(knitr)
+
+parameters= as.data.frame(c("Genomic Data File","Class File", "Geneset File", "Machine Learning Algorithm" , "# of Iterations", "# of Cross Validations", "% Variance Filtered", "% Low Gene Expression Filtered"))
+colnames(parameters) = "You ran GSOA with:"
+
+params$m
+
+#input= as.data.frame(c(params$n,"ClassFile.txt", "Geneset.gmt", "SVM" , "5", "10", "10", params$m))
+#colnames(input) = " "
+
+#tbl= cbind(parameters,input)
+
+# create the table 
+#kable(tbl, caption = "")
+```
+
+
+
+### Hallmark's Bar Chart
+```{r echo = FALSE}
+
+```
+
+
+<!-- Seocnd Column with 1 Row -->
+Column {data-height=500}
+---------------------------------------------
+
+### Hallmark's Ontology
+```{r echo = FALSE}
+
+```
+
+<!-- Seperate Tab -->
+# CSV File
+
+## Column 2 {data-width=700}
+
+### Tables with Kable 
+
+```{r echo = FALSE, results = 'asis'}
+library(knitr)
+kable(mtcars[1:5, ], caption = "A knitr kable.")
+```
+
+It is very easy to make tables with knitr's `kable` function.
+
+
+<!--
+**Genomic Data File: **         
+**Class File: **  
+**Geneset: **  
+**Machine Learning Algorithm: **  
+**Variance Filtered : **  
+**Low Gene Expression Filtered : **   
+**Number of Cross Validations : **  
+**Number of Iterations : ** 
+
+
+<!-- Themes:
+cerulean - too dark
+bootstrap- plain jane
+journal = red
+flatly - i like it, its green
+readable= plain jane
+spacelab = too bussiness like
+united= okay
+lumen = plain jane
+paper = its nice
+sandstone = cute, not sure about the color or small font
+simplex - no red
+
+
+
+
+
+-->

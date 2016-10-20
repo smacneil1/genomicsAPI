@@ -8,7 +8,6 @@ theme = shinytheme("cerulean"), collapsable = TRUE,#theme = shinytheme("united")
 
 # "Run GSOA" Page
 tabPanel("Run GSOA",
-         
          #column(12, wellPanel(
            h2('Gene Set Omic Analysis (GSOA)', align="center"),
            h5("GSOA identifies gene sets that differ between two phenotypes by integrating evidence from multi-omic data using machine learning algorithms", style="color:black"),
@@ -52,7 +51,7 @@ actionButton("runButton", "Run"))),
 mainPanel(
 #img(src = "Octocat.png", height = 72, width = 72),
 column(12,
-downloadButton('downloadData', 'Download Results')),  
+downloadButton('download', 'Download Results')),  
 br(),
 br(),
 br(),

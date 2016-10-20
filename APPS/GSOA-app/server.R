@@ -10,6 +10,7 @@
 library(shiny)
 library(GSOA)
 library(rsconnect)
+library(rmarkdown)
 
 
 # By default, the file size limit is 5MB. It can be changed by
@@ -18,6 +19,31 @@ options(shiny.maxRequestSize = 9*1024^2)
 
 shinyServer(function(input, output,session) {
 
+  #output$results <- renderDataTable({
+  #  cbind(names = rownames(GSOA), GSOA) })
+  
+  output$download <- downloadHandler(
+    # For PDF output, change this to "report.pdf"
+    filename = "GS0A_report.html",
+    content = function(file) {
+      # Copy the report file to a temporary directory before processing it, in
+      # case we don't have write permissions to the current working dir (which
+      # can happen when deployed).
+      tempReport <- file.path(tempdir(), "report.Rmd")
+      file.copy("GOSA_dashboard.Rmd", tempReport, overwrite = TRUE)
+      
+      # Set up parameters to pass to Rmd document
+      params <- list(n = input$dataFile$name, m=input$Iterations)
+      
+      # Knit the document, passing in the `params` list, and eval it in a
+      # child of the global environment (this isolates the code in the document
+      # from the code in this app).
+      rmarkdown::render(tempReport, output_file = file,
+                        params = params,
+                        envir = new.env(parent = globalenv())
+      )
+    })
+  
 observeEvent(input$runButton, {
   withProgress(message = 'Running GSOA and Generating Report',
   
@@ -26,49 +52,70 @@ observeEvent(input$runButton, {
      GSOA=GSOA_ProcessFiles(dataFilePath = input$dataFile$datapath, classFilePath = input$classFile$datapath,  gmtFilePath = input$gmtFile$datapath, outFilePath=NA, classificationAlgorithm = input$Algorithm, 
                             numCrossValidationFolds = input$CrossValidation, numRandomIterations = input$Iterations, removePercentLowestVar = input$Variance, removePercentLowestExpr = input$LowExpression)
 
-     output$results <- renderDataTable({
-       cbind(names = rownames(GSOA), GSOA) })
-   })
-     
-     #output$downloadData <- downloadHandler(
-    #   filename = function() { input$resultsFile },
-    #   content = function(file) {
-    #     write.csv(datasetInput(), file)
-    #   })
+
+     }) #with progress bar 
+  
+  }) # run button
+
+}) #server 
+
+#downloadHandler(filename, content, contentType = NA, outputArgs = list())
 
 
-    if (is.null(input$dataFile) && is.null(input$classFile) && is.null(input$gmtFile)) {
-      session$sendCustomMessage(type = 'missingFiles',
-                                message = "Missing Data File, Class File, and GMT File")
-       }
+# this works.
+#output$download <- downloadHandler(
+#  filename = function() {
+#    paste("GSOA", Sys.Date(), ".csv", sep="")
+#  },
+#  content = function(file) {
+#    write.csv(GSOA , file) #this part works
+#  })
 
-      if (is.null(input$dataFile) && is.null(input$classFile) && !is.null(input$gmtFile)) {
-        session$sendCustomMessage(type = 'missingFiles',
-                                  message = "Missing Data File and Class File")
-      }
-  if (is.null(input$dataFile) && !is.null(input$classFile) && is.null(input$gmtFile)) {
-    session$sendCustomMessage(type = 'missingFiles',
-                              message = "Missing Data File and GMT File")
-  }
-  if (!is.null(input$dataFile) && is.null(input$classFile) && is.null(input$gmtFile)) {
-    session$sendCustomMessage(type = 'missingFiles',
-                              message = "Missing Class File and GMT File ")
-  }
+
+
+
+
   
-  if (!is.null(input$dataFile) && !is.null(input$classFile) && is.null(input$gmtFile)) {
-    session$sendCustomMessage(type = 'missingFiles',
-                              message = "Missing GMT File")
-  }
-  
-  if (!is.null(input$dataFile) && is.null(input$classFile) && !is.null(input$gmtFile)) {
-    session$sendCustomMessage(type = 'missingFiles',
-                              message = "Missing Class File")
-  }
-  
-  if (is.null(input$dataFile) && !is.null(input$classFile) && !is.null(input$gmtFile)) {
-    session$sendCustomMessage(type = 'missingFiles',
-                              message = "Missing Data File")}
-  })})
+
+
+
+# add later
+# if (is.null(input$dataFile) && is.null(input$classFile) && is.null(input$gmtFile)) {
+#   session$sendCustomMessage(type = 'missingFiles',
+#                             message = "Missing Data File, Class File, and GMT File")
+# }
+# 
+# if (is.null(input$dataFile) && is.null(input$classFile) && !is.null(input$gmtFile)) {
+#   session$sendCustomMessage(type = 'missingFiles',
+#                             message = "Missing Data File and Class File")
+# }
+# if (is.null(input$dataFile) && !is.null(input$classFile) && is.null(input$gmtFile)) {
+#   session$sendCustomMessage(type = 'missingFiles',
+#                             message = "Missing Data File and GMT File")
+# }
+# if (!is.null(input$dataFile) && is.null(input$classFile) && is.null(input$gmtFile)) {
+#   session$sendCustomMessage(type = 'missingFiles',
+#                             message = "Missing Class File and GMT File ")
+# }
+# 
+# if (!is.null(input$dataFile) && !is.null(input$classFile) && is.null(input$gmtFile)) {
+#   session$sendCustomMessage(type = 'missingFiles',
+#                             message = "Missing GMT File")
+# }
+# 
+# if (!is.null(input$dataFile) && is.null(input$classFile) && !is.null(input$gmtFile)) {
+#   session$sendCustomMessage(type = 'missingFiles',
+#                             message = "Missing Class File")
+# }
+# 
+# if (is.null(input$dataFile) && !is.null(input$classFile) && !is.null(input$gmtFile)) {
+#   session$sendCustomMessage(type = 'missingFiles',
+                            #message = "Missing Data File")}
+
+
+
+
+
 
 
 
