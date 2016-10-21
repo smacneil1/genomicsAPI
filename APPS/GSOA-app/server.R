@@ -6,12 +6,10 @@
 # 
 #    http://shiny.rstudio.com/
 #
-
 library(shiny)
 library(GSOA)
 library(rsconnect)
 library(rmarkdown)
-
 
 # By default, the file size limit is 5MB. It can be changed by
 # setting this option. Here we'll raise limit to 9MB.
@@ -33,7 +31,9 @@ shinyServer(function(input, output,session) {
       file.copy("GOSA_dashboard.Rmd", tempReport, overwrite = TRUE)
       
       # Set up parameters to pass to Rmd document
-      params <- list(n = input$dataFile$name, m=input$Iterations)
+      params <- list(iterations = input$Iterations, data1= input$dataFile$name ,data2=input$dataFile2$name,data3= input$dataFile3$name, data4= input$dataFile4$name, class= input$classFile$name, genesets= input$gmtFile$name, results= input$resultsFile, alg = input$Algorithm, var= input$Variance,
+      lowexpress= input$LowExpression, crossval = input$CrossValidation)
+      
       
       # Knit the document, passing in the `params` list, and eval it in a
       # child of the global environment (this isolates the code in the document
@@ -51,12 +51,8 @@ observeEvent(input$runButton, {
      
      GSOA=GSOA_ProcessFiles(dataFilePath = input$dataFile$datapath, classFilePath = input$classFile$datapath,  gmtFilePath = input$gmtFile$datapath, outFilePath=NA, classificationAlgorithm = input$Algorithm, 
                             numCrossValidationFolds = input$CrossValidation, numRandomIterations = input$Iterations, removePercentLowestVar = input$Variance, removePercentLowestExpr = input$LowExpression)
-
-
      }) #with progress bar 
-  
   }) # run button
-
 }) #server 
 
 #downloadHandler(filename, content, contentType = NA, outputArgs = list())
@@ -70,13 +66,6 @@ observeEvent(input$runButton, {
 #  content = function(file) {
 #    write.csv(GSOA , file) #this part works
 #  })
-
-
-
-
-
-  
-
 
 
 # add later
@@ -112,15 +101,6 @@ observeEvent(input$runButton, {
 #   session$sendCustomMessage(type = 'missingFiles',
                             #message = "Missing Data File")}
 
-
-
-
-
-
-
-
-
-  
 # Not using
 #    observeEvent(input$showInputs, {
 #      output$alg <- renderText({
@@ -139,7 +119,6 @@ observeEvent(input$runButton, {
     #need(input$classFile, 'Please upload a class file '),
     #need(input$gmtFile, 'Please select a gmt file')
     #)
-
 
 #output$path <- renderText({
 # input$dataFile$datapath
@@ -167,13 +146,3 @@ observeEvent(input$runButton, {
 #  par(cex.lab=1.5)
 #  boxplot(data, main= input$title, ylab= input$yaxis, xlab= input$xaxis, col= "royalblue")
 # })
-
-
-
-
-  
-
-
-
-
-

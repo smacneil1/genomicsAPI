@@ -7,8 +7,18 @@ output:
     social: menu
     source_code: embed
 params: 
-    m: NA
-    n: NA
+    iterations: NA
+    data1: NA
+    data2: NA
+    data3: NA
+    data4: NA
+    class: NA
+    genesets: NA
+    results: NA
+    alg: NA
+    var: NA
+    lowexpress: NA
+    crossval: NA
 ---
 
 ```{r include = FALSE}
@@ -32,25 +42,22 @@ This report contains:
 Column {data-height=700}
 ---------------------------------------------
 
-
-
-### OK
+### Parameters
 
 ```{r, results='asis', echo=FALSE}
 library(knitr)
 
 parameters= as.data.frame(c("Genomic Data File","Class File", "Geneset File", "Machine Learning Algorithm" , "# of Iterations", "# of Cross Validations", "% Variance Filtered", "% Low Gene Expression Filtered"))
-colnames(parameters) = "You ran GSOA with:"
+colnames(parameters) = "You ran GSOA with the following files:"
 
-params$m
 
-#input= as.data.frame(c(params$n,"ClassFile.txt", "Geneset.gmt", "SVM" , "5", "10", "10", params$m))
-#colnames(input) = " "
+input= as.data.frame(c(params$data1, params$class, params$genesets, params$alg, params$iterations, params$crossval, params$var, params$lowexpress))
+colnames(input) = " "
 
-#tbl= cbind(parameters,input)
+tbl= cbind(parameters,input)
 
 # create the table 
-#kable(tbl, caption = "")
+kable(tbl, caption = "")
 ```
 
 
@@ -110,6 +117,9 @@ sandstone = cute, not sure about the color or small font
 simplex - no red
 
 
+# if (is.null(input$dataFile) && is.null(input$classFile) && is.null(input$gmtFile)) {
+#   session$sendCustomMessage(type = 'missingFiles',
+#                             message = "Missing Data File, Class File, and GMT File")
 
 
 

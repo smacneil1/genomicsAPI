@@ -2572,12 +2572,44 @@ This report contains:
 <!-- First Column with 2 Rows -->
 <div id="column" class="section level2" data-height="700">
 <h2>Column</h2>
-<div id="ok" class="section level3">
-<h3>OK</h3>
+<div id="parameters" class="section level3">
+<h3>Parameters</h3>
 <div class="knitr-options" data-fig-width="576" data-fig-height="460">
 
 </div>
-<p>[1] “NA”</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">You ran GSOA with the following files:</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Genomic Data File</td>
+</tr>
+<tr class="even">
+<td align="left">Class File</td>
+</tr>
+<tr class="odd">
+<td align="left">Geneset File</td>
+</tr>
+<tr class="even">
+<td align="left">Machine Learning Algorithm</td>
+</tr>
+<tr class="odd">
+<td align="left"># of Iterations</td>
+</tr>
+<tr class="even">
+<td align="left"># of Cross Validations</td>
+</tr>
+<tr class="odd">
+<td align="left">% Variance Filtered</td>
+</tr>
+<tr class="even">
+<td align="left">% Low Gene Expression Filtered</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="hallmarks-bar-chart" class="section level3">
 <h3>Hallmark’s Bar Chart</h3>
@@ -2760,15 +2792,24 @@ output:
     social: menu
     source_code: embed
 params: 
-    n: NA
+    iterations: NA
+    data1: NA
+    data2: NA
+    data3: NA
+    data4: NA
+    class: NA
+    genesets: NA
+    results: NA
+    alg: NA
+    var: NA
+    lowexpress: NA
+    crossval: NA
 ---
 
 ```{r include = FALSE}
 suppressMessages(library(googleVis))
 op &lt;- options(gvis.plot.tag=&quot;chart&quot;)
 ```
-
-
 <!-- 
 # Intro {.sidebar}
 
@@ -2786,25 +2827,21 @@ This report contains:
 Column {data-height=700}
 ---------------------------------------------
 
-
-
-### OK
+### Parameters
 
 ```{r, results='asis', echo=FALSE}
 library(knitr)
 
 parameters= as.data.frame(c(&quot;Genomic Data File&quot;,&quot;Class File&quot;, &quot;Geneset File&quot;, &quot;Machine Learning Algorithm&quot; , &quot;# of Iterations&quot;, &quot;# of Cross Validations&quot;, &quot;% Variance Filtered&quot;, &quot;% Low Gene Expression Filtered&quot;))
-colnames(parameters) = &quot;You ran GSOA with:&quot;
+colnames(parameters) = &quot;You ran GSOA with the following files:&quot;
 
-params$n
-
-#input= as.data.frame(c(params$n,&quot;ClassFile.txt&quot;, &quot;Geneset.gmt&quot;, &quot;SVM&quot; , &quot;5&quot;, &quot;10&quot;, &quot;10&quot;, params$m))
+#input= as.data.frame(c(params$data1, params$class, params$genesets, params$alg, params$iterations, params$crossval, params$var, params$lowexpress))
 #colnames(input) = &quot; &quot;
 
 #tbl= cbind(parameters,input)
 
 # create the table 
-#kable(tbl, caption = &quot;&quot;)
+kable(parameters, caption = &quot;&quot;)
 ```
 
 
