@@ -4,7 +4,7 @@ require(markdown)
 
 shinyUI(fluidPage(navbarPage( "Gene Set Omic Analysis (GSOA)",
 id = "page-nav", 
-theme = shinytheme("cerulean"), collapsable = TRUE,#theme = shinytheme("united"),
+theme = shinytheme("united"), collapsable = TRUE,#theme = shinytheme("united"),
 
 # "Run GSOA" Page
 tabPanel("Run GSOA",
@@ -28,9 +28,8 @@ div(style="height: 85px;",fileInput('dataFile3', 'Copy Number Variation Data.', 
 div(style="height: 85px;",fileInput('dataFile4', 'Other Genomic Data.', width="75%",accept = c( 'text/csv','text/comma-separated-values','text/tab-separated-values', 'text/plain', '.csv', '.tsv'))),
 #p('', style="border:0.1px; border-style:solid; border-color:grey; padding: 0.01em;background:grey"),
 div(style="height: 85px;",fileInput('classFile', 'Sample Class File.', width="75%",accept = c( 'text/csv','text/comma-separated-values','text/tab-separated-values', 'text/plain', '.csv', '.tsv'))),
-div(style="height: 85px;",fileInput('gmtFile_hallmarks', 'Hallmark Gene Sets  (GMT file).',width="75%", accept = c( 'text/csv','text/comma-separated-values','text/tab-separated-values','text/plain', '.csv', '.tsv'))),
-div(style="height: 85px;",fileInput('gmtFile_user', 'User Gene Set (GMT file).',width="75%", accept = c( 'text/csv','text/comma-separated-values','text/tab-separated-values','text/plain', '.csv', '.tsv'))),
-div(style="height: 85px;",textInput('results_h', value= "GSOA_Demo.txt ", width="75%",label = 'Output File Name')),
+div(style="height: 85px;",fileInput('gmtFile', 'Gene Sets (GMT file).',width="75%", accept = c( 'text/csv','text/comma-separated-values','text/tab-separated-values','text/plain', '.csv', '.tsv'))),
+div(style="height: 85px;",textInput('resultsFile', value= "GSOA_Demo.txt ", width="75%",label = 'Output File Name')),
 selectInput('Algorithm', label = 'Machine Learning Algorithm.', width="70%", choices = c("svm", "rf")),
 numericInput("Variance", "% Variance to Filter",value=10,  width="70%",min = 1, max = 90),
 numericInput("LowExpression", "% Low Gene Expression to Filter",value=10, width="70%",min = 1, max = 90),

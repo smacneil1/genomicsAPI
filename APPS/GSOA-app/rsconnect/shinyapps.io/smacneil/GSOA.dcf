@@ -2,8 +2,8 @@ name: GSOA
 account: smacneil
 server: shinyapps.io
 appId: 123033
-bundleId: 583440
+bundleId: 593417
 url: https://smacneil.shinyapps.io/GSOA/
-when: 1476198695.8567
+when: 1477103789.08856
 asMultiple: FALSE
 asStatic: FALSE
