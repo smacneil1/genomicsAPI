@@ -1,0 +1,7 @@
+name: Publish Document
+account: rpubs
+server: rpubs.com
+appId: https://api.rpubs.com/api/v1/document/221187/28ca5ba255de4e378a3ec29f9af296e1
+bundleId: https://api.rpubs.com/api/v1/document/221187/28ca5ba255de4e378a3ec29f9af296e1
+url: http://rpubs.com/smacneil/221187
+when: 1477439006.62289
